@@ -41,7 +41,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         async function fetchUsuarios() {
-            const response = await fetch('http://localhost:8080/ver');
+            const response = await fetch('http://localhost:3000/ver');
             const usuarios = await response.json();
             const listaRegistros = document.getElementById('listaRegistros');
             listaRegistros.innerHTML = '';
@@ -54,7 +54,7 @@
                 deleteBtn.className = 'btn btn-danger btn-sm';
                 deleteBtn.addEventListener('click', async () => {
                     try {
-                        const response = await fetch('http://localhost:8080/eliminar', {
+                        const response = await fetch('http://localhost:3000/eliminar', {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -81,7 +81,7 @@
         document.getElementById('agregarBtn').addEventListener('click', async () => {
             const id = document.getElementById('ID').value;
             const nombre = document.getElementById('nombre').value;
-            const response = await fetch('http://localhost:8080/agregar', {
+            const response = await fetch('http://localhost:3000/agregar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
