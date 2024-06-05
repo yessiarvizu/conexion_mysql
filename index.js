@@ -10,7 +10,7 @@ app.use(cors());
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-    console.log("https://conexion-mysql-1.onrender.com/" + PORT);
+    console.log(https://conexion-mysql-1.onrender.com);
 });
 
 const connection = mysql.createConnection({
@@ -55,7 +55,7 @@ app.post("/agregar", (req, res) => {
             return res.status(500).json({ message: error.message || "No se pudo insertar el dato en este momento" });
         }
         res.status(201).json(results);
-    }); 
+    });
 });
 
 app.patch("/actualizar", (req, res) => {
