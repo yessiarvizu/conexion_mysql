@@ -37,7 +37,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         async function fetchUsuarios() {
-            const response = await fetch('http://localhost:8080/ver');
+            const response = await fetch('http://localhost:3000/ver');
             const usuarios = await response.json();
             const listaRegistros = document.getElementById('listaRegistros');
             listaRegistros.innerHTML = '';
@@ -66,7 +66,7 @@
                         editBtn.textContent = 'Editar';
                         if (editInput.value) {
                             const nuevoNombre = editInput.value;
-                            fetch(`http://localhost:8080/actualizar`, {
+                            fetch(`http://localhost:3000/actualizar`, {
                                 method: 'PATCH',
                                 headers: {
                                     'Content-Type': 'application/json'
@@ -118,7 +118,7 @@
 
         document.getElementById('agregarBtn').addEventListener('click', async () => {
             const nombre = document.getElementById('nombre').value;
-            const response = await fetch('http://localhost:8080/agregar', {
+            const response = await fetch('http://localhost:3000/agregar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
