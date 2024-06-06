@@ -7,6 +7,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const PORT = 8080;
+
+app.listen(PORT, () => {
+    console.log("Servidor corriendo en http://localhost:" + PORT);
+});
+
 const URL = https://registro-conexion-mysql.onrender.com;
 
 const connection = mysql.createConnection({
