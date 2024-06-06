@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="ios/72.png">
+    <meta name="apple-mobile-web-app-status-bar"
+    content="#db4938">
+    <meta="thee-color"
+    content="#db4938">
     <title>Registro de Usuarios</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +43,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         async function fetchUsuarios() {
-            const response = await fetch('http://localhost:3000/ver');
+            const response = await fetch('http://localhost:8080/ver');
             const usuarios = await response.json();
             const listaRegistros = document.getElementById('listaRegistros');
             listaRegistros.innerHTML = '';
@@ -66,7 +72,7 @@
                         editBtn.textContent = 'Editar';
                         if (editInput.value) {
                             const nuevoNombre = editInput.value;
-                            fetch(`http://localhost:3000/actualizar`, {
+                            fetch(`http://localhost:8080/actualizar`, {
                                 method: 'PATCH',
                                 headers: {
                                     'Content-Type': 'application/json'
@@ -118,7 +124,7 @@
 
         document.getElementById('agregarBtn').addEventListener('click', async () => {
             const nombre = document.getElementById('nombre').value;
-            const response = await fetch('http://localhost:3000/agregar', {
+            const response = await fetch('http://localhost:8080/agregar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -134,11 +140,6 @@
                 alert('Error al agregar el usuario: ' + result.message);
             }
         });
-
-        document.getElementById('verUsuariosBtn').addEventListener('click', fetchUsuarios);
-    </script>
-</body>
-</html>
 
         document.getElementById('verUsuariosBtn').addEventListener('click', fetchUsuarios);
     </script>

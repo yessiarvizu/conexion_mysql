@@ -7,10 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 4000;
+const PORT = 8080;
 
 app.listen(PORT, () => {
-    console.log(https://conexion-mysql-1.onrender.com);
+    console.log("Servidor corriendo en http://localhost:" + PORT);
 });
 
 const connection = mysql.createConnection({
