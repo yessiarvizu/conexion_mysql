@@ -31,7 +31,7 @@ connection.connect((err) => {
     }
 });
 
-app.get("/ver", (req, res) => {
+app.get("/", (req, res) => {
     connection.query("SELECT * FROM usuarios", (error, results) => {
         if (error) {
             console.error(error);
@@ -46,7 +46,7 @@ app.get("/ver", (req, res) => {
     });
 });
 
-app.post("/agregar", (req, res) => {
+app.post("/", (req, res) => {
     const { nombre } = req.body;
     if (!nombre) {
         return res.status(400).json({ message: "El nombre es requerido" });
@@ -60,7 +60,7 @@ app.post("/agregar", (req, res) => {
     });
 });
 
-app.patch("/actualizar", (req, res) => {
+app.patch("/", (req, res) => {
     const { id, nombre } = req.body;
     if (!id || !nombre) {
         return res.status(400).json({ message: "El ID y el nombre son requeridos" });
@@ -74,7 +74,7 @@ app.patch("/actualizar", (req, res) => {
     });
 });
 
-app.delete("/eliminar", (req, res) => {
+app.delete("/", (req, res) => {
     const { id } = req.body;
     if (!id) {
         return res.status(400).json({ message: "El ID es requerido" });
